@@ -13,11 +13,11 @@
         if (email != null && password != null){
             
             message.html("All the inputs are correct.");
+            message.submit();
         }
     };
     $(document).ready(() => {
-        $("#button").click(changeText);
-        
+        $("#login").click(changeText);
     })
     </script>
     <title>Selenium Test</title>
@@ -31,9 +31,8 @@
     <p> Password : </p>
     <input type="password" id="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"/>
     
-    <button id="button">Login</button>
-    <p id="message"></p>
-
+    <input type="submit" id="login">Login</button> 
+        <p id="message"> </p>
 </form>    
 </body>
 </html>
