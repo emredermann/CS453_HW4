@@ -1,12 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+   
+   <script > 
+    
+    changeText = () =>{
+        var email = $("#email");
+        var password = $("#password");
+        console.log(email,password)
+        if (email != null && password != null){
+            message.html("All the inputs are correct.");
+        }
+    };
+    $(document).ready(() => {
+        $("#button").click(changeText);
+        
+    })
+    </script>
     <title>Selenium Test</title>
 </head>
+
 <body>
+<form>
+    <p> Email : </p>
+    <input type="email" id="email"/>
+
+    <p> Password : </p>
+    <input type="password" id="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"/>
     
+    <button id="button">Login</button>
+    <p id="message"></p>
+
+</form>    
 </body>
 </html>
