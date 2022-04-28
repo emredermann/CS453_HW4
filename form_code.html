@@ -4,37 +4,40 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
    <script > 
   
-function containsSpecialChars(str) {
-  const specialChars = "^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-])$";
-  return containsSpecialChars(str) && (str.length >= 8); 
-  
-  function validateEmail (emailAdress)
-{
-   let regexEmail = "/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/";
-  if (emailAdress.match(regexEmail)) {
-    return true; 
-  } else {
-    return false; 
-  }
 
+function containsSpecialChars (str )
+{
+     let password = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[@+]).{8,12}$/;
+     console.log('password ',password.test(str))
+  return (password.test(str)) 
+}
+  function validateEmail (emailAdress = '')
+{
+     let regexEmail = /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/;;
+     console.log(regexEmail.test(emailAdress))
+  return (regexEmail.test(emailAdress)) 
+   
 }
     function changeText () {
-        console.log("INSIDE CHANGE TEXT")
-        var email = $("#email");
-        var password = $("#password");
+        
+        var email = document.getElementById("email").value;
+        var password = document.getElementById("password").value;
+        console.log(email,password)
         var is_email = validateEmail(email)
         var is_password = containsSpecialChars(password)
 
         var message = $("#message");
-        console.log(email,password)
         if (is_email && is_password){
             message.html("All the inputs are correct.");
+            message.submit();
         }else{
-            message.html("All the inputs are not.");
+            message.html("All the inputs are not correct.");
+            message.submit();
         }
-        message.submit();
+       
     };
     </script>
+
     <title>Selenium Test</title>
 </head>
 
